@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Wish List</title>
+</head>
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .btn_div {
+        margin-top: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .btn {
+        background-color: aliceblue;
+        border: solid 3px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 15px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    }
+</style>
+
+<body>
+    <h1 class="center">Travel Wish List</h1>
+    <div>
+        <img id="demo" src="./assets/images/image2.jpg" height="500" Width="700" class="center" border="5px solid blue"> 
+    </div>
+    <div class ="btn_div">
+    <button class="btn" onclick="hawaii_slide()">Hawaii</button>
+    <button class="btn" onclick="wash_slide()">Washington</button>
+    <button class="btn" onclick="test()">Australia</button>
+    </div>
+</body>
+<script>
+
+//Hawaii SlideShow
+
+    var i = 0;
+    var images = [];
+    var time = 3000;
+
+    images[0] = './assets/images/image1.jpg';
+    images[1] = './assets/images/image2.jpg';
+    images[2] = './assets/images/image3.jpg';
+    images[3] = './assets/images/image4.jpg';
+    images[4] = './assets/images/image5.jpg';
+
+    function hawaii_slide() {
+        
+document.getElementById('demo').src = images[i];
+if (i < images.length -1) {
+            i++;
+            } else {
+                i = 0;
+                return;
+            }
+        setTimeout("hawaii_slide()", time);
+    }
+
+//Washington slideshow
+
+var j = 0;
+var wash = [];
+
+    wash[0] = './assets/images/wash1.jpg';
+    wash[1] = './assets/images/wash2.jpg';
+    wash[2] = './assets/images/wash3.jpg';
+    wash[3] = './assets/images/wash4.jpg';
+    wash[4] = './assets/images/wash5.jpg';
+
+    function wash_slide() {
+document.getElementById('demo').src = wash[j];
+if (j < wash.length -1) {
+            j++;
+            } else {
+                j = 0;
+                return;
+            }
+        setTimeout("wash_slide()", time);
+    }
+
+//Australia slideshow
+
+    let k = 0;
+    aus = ["./assets/images/aus1.jpg",
+    "./assets/images/aus2.jpg", 
+    "./assets/images/aus3.jpg", 
+    "./assets/images/aus4.jpg",
+    "./assets/images/aus5.jpg"]
+    function test() {
+        //try for (let item of aus)
+document.getElementById('demo').src = aus[k];
+if (k < aus.length-1) {
+            k++;
+            } else {
+                k = 0;
+                return;
+            }
+        setTimeout("test()", time);
+    }
+</script>
+</html>
