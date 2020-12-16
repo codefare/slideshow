@@ -37,10 +37,11 @@
         <img id="demo" src="./assets/images/image2.jpg" height="500" Width="700" class="center" border="5px solid blue"> 
     </div>
     <div class ="btn_div">
-    <button class="btn" onclick="hawaii_slide()">Hawaii</button>
-    <button class="btn" onclick="wash_slide()">Washington</button>
-    <button class="btn" onclick="test()">Australia</button>
+    <button id="hstop" class="btn" onclick="hawaii_slide()">Hawaii</button>
+    <button id="wstop" class="btn" onclick="wash_slide()">Washington</button>
+    <button id="astop" class="btn" onclick="test()">Australia</button>
     </div>
+    
 </body>
 <script>
 
@@ -49,6 +50,7 @@
     var i = 0;
     var images = [];
     var time = 3000;
+    var hinterval;
 
     images[0] = './assets/images/image1.jpg';
     images[1] = './assets/images/image2.jpg';
@@ -63,15 +65,15 @@ if (i < images.length -1) {
             i++;
             } else {
                 i = 0;
-                return;
             }
-        setTimeout("hawaii_slide()", time);
+    hinterval = setTimeout("hawaii_slide()", time);
     }
 
 //Washington slideshow
 
 var j = 0;
 var wash = [];
+var winterval;
 
     wash[0] = './assets/images/wash1.jpg';
     wash[1] = './assets/images/wash2.jpg';
@@ -85,14 +87,14 @@ if (j < wash.length -1) {
             j++;
             } else {
                 j = 0;
-                return;
             }
-        setTimeout("wash_slide()", time);
+        winterval = setTimeout("wash_slide()", time);
     }
 
 //Australia slideshow
 
     let k = 0;
+    var ainterval;
     aus = ["./assets/images/aus1.jpg",
     "./assets/images/aus2.jpg", 
     "./assets/images/aus3.jpg", 
@@ -105,9 +107,28 @@ if (k < aus.length-1) {
             k++;
             } else {
                 k = 0;
-                return;
             }
-        setTimeout("test()", time);
+        ainterval = setTimeout("test()", time);
     }
+
+function stopFunctionHawaii() {
+    clearTimeout(ainterval);
+    clearTimeout(winterval);
+
+}
+
+function stopFunctionWashington() {
+    clearTimeout(hinterval);
+    clearTimeout(ainterval);
+}
+
+function stopFunctionAus() {
+    clearTimeout(hinterval);
+    clearTimeout(winterval);
+}
+
+document.getElementById('hstop').addEventListener("click", stopFunctionHawaii);
+document.getElementById('wstop').addEventListener("click", stopFunctionWashington);
+document.getElementById('astop').addEventListener("click", stopFunctionAus);
 </script>
 </html>
